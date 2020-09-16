@@ -18,19 +18,19 @@ services:
       - 6379:6379
   webapp:
     build: .
-#    command: sh -c "yarn knex db:latest && npm start"
-    command:
-      - sleep
-      - "1000000"
+    command: sh -c "yarn knex db:latest && npm start"
+#    command:
+#      - sleep
+#      - "1000000"
     ports:
       - 3000:3000
     environment:
-      DB_TYPE: "pg"
       SESSION_SECRET: asdfasfasfasdfasfawfasdfasfasfasfasfasfgasdfasdfasjlfnkjh
       PASSPORT_STRATEGY: local
       REDIS_URL: redis://redis
-      DB_HOST: postgres
 
+      DB_TYPE: "pg"
+      DB_HOST: postgres
       DB_NAME: spokedev
       DB_USER: spoke
       DB_PASSWORD: spoke

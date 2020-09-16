@@ -29,6 +29,15 @@ ENV NODE_ENV=production \
     ASSETS_MAP_FILE=assets.json \
     JOBS_SAME_PROCESS=1
 
+RUN echo 'var config = require("./src/server/knex-connect");' > /spoke/knexfile.env.js
+RUN echo "module.exports = { " >> /spoke/knexfile.env.js
+RUN echo "  development: config, " >> /spoke/knexfile.env.js
+RUN echo "  test: config, " >> /spoke/knexfile.env.js
+RUN echo "  staging: config, " >> /spoke/knexfile.env.js
+RUN echo "  production: config " >> /spoke/knexfile.env.js
+RUN echo " }; " >> /spoke/knexfile.env.js
+
+
 # Switch to non-root user https://github.com/nodejs/docker-node/blob/d4d52ac41b1f922242d3053665b00336a50a50b3/docs/BestPractices.md#non-root-user
 USER node
 EXPOSE 3000

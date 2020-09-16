@@ -1,3 +1,7 @@
+# SDSA NOTE: to get a shell into the webapp container, change the command to `sleep 10000000`, then run `docker-compose exec webapp /bin/sh -l`
+
+
+
 [![Build Status](https://travis-ci.org/MoveOnOrg/Spoke.svg?branch=main)](https://travis-ci.org/MoveOnOrg/Spoke)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
 
