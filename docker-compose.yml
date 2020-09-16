@@ -19,9 +19,6 @@ services:
   webapp:
     build: .
     command: sh -c "yarn knex db:latest && npm start"
-#    command:
-#      - sleep
-#      - "1000000"
     ports:
       - 3000:3000
     environment:
@@ -38,6 +35,8 @@ services:
       POSTGRES_DB: spokedev
       POSTGRES_PASSWORD: spoke
       POSTGRES_USER: spoke
+
+      KNEX_MIGRATION_DIR: "/spoke/build/server/migrations/"
 volumes:
   postgres:
     external: false
